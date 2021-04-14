@@ -107,63 +107,59 @@ const Todo = () => {
       </div>
 
       <ul className="o-checklist">
-        {!!toDoList.length ? (
-          toDoList.map((todo, index) => {
-            const labelClass = classnames('c-todo-label', {
-              'c-todo-label--is-complete': todo.isComplete,
-            })
+        {toDoList.map((todo, index) => {
+          const labelClass = classnames('c-todo-label', {
+            'c-todo-label--is-complete': todo.isComplete,
+          })
 
-            const editInput = (
+          const editInput = (
+            <input
+              className="c-edit-input-field"
+              type="text"
+              onChange={onItemEdit}
+              defaultValue={todo.label}
+            />
+          )
+
+          const labelField = <span className={labelClass}>{todo.label}</span>
+
+          return (
+            <li key={`item-${index}`} className="c-checklist-item">
               <input
-                className="c-edit-input-field"
-                type="text"
-                onChange={onItemEdit}
-                defaultValue={todo.label}
+                type="checkbox"
+                onChange={onTodoComplete.bind(null, index, todo)}
               />
-            )
 
-            const labelField = <span className={labelClass}>{todo.label}</span>
-
-            return (
-              <li key={`item-${index}`} className="c-checklist-item">
-                <input
-                  type="checkbox"
-                  onChange={onTodoComplete.bind(null, index, todo)}
-                />
-
-                {/* if the current todo item in the list is in EDIT MODE
+              {/* if the current todo item in the list is in EDIT MODE
                 then show the edit iput field
                 if not then show the regular label field */}
-                {todo.isInEditMode ? editInput : labelField}
+              {todo.isInEditMode ? editInput : labelField}
 
-                <div className="o-button-container">
+              <div className="o-button-container">
+                <button
+                  className="c-button"
+                  onClick={onTodoDelete.bind(null, index, todo)}
+                >
+                  DELETE
+                </button>
+                <button
+                  className="c-button"
+                  onClick={onTodoEdit.bind(null, index, todo)}
+                >
+                  EDIT
+                </button>
+                {todo.isInEditMode && (
                   <button
                     className="c-button"
-                    onClick={onTodoDelete.bind(null, index, todo)}
+                    onClick={onTodoSave.bind(null, index, todo)}
                   >
-                    DELETE
+                    SAVE
                   </button>
-                  <button
-                    className="c-button"
-                    onClick={onTodoEdit.bind(null, index, todo)}
-                  >
-                    EDIT
-                  </button>
-                  {todo.isInEditMode && (
-                    <button
-                      className="c-button"
-                      onClick={onTodoSave.bind(null, index, todo)}
-                    >
-                      SAVE
-                    </button>
-                  )}
-                </div>
-              </li>
-            )
-          })
-        ) : (
-          <span>No todos</span>
-        )}
+                )}
+              </div>
+            </li>
+          )
+        })}
       </ul>
       <button className="c-button" onClick={onTodoClear}>
         CLEAR
