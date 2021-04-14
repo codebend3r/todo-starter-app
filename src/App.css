@@ -1,0 +1,23 @@
+.main-container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.c-button {
+  all: unset;
+  padding: 6px;
+  font-size: 12px;
+  background-color: #4040ab;
+  color: white;
+  border-radius: 5px;
+  display: inline-block;
+  width: auto;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.c-button:disabled {
+  color: rgb(222, 222, 222);
+  opacity: 0.5;
+  background-color: #6969a6;
+}

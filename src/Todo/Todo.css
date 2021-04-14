@@ -1,0 +1,59 @@
+.o-todo-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 10px;
+}
+
+.o-checklist {
+  margin: 0;
+  padding: 10px;
+  background-color: #d2d2d2;
+  border-radius: 10px;
+}
+
+.o-task-addition {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 1fr auto;
+}
+
+.o-checklist {
+  padding: 10px;
+}
+
+.c-checklist-item {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  grid-gap: 10px;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 10px;
+  color: #2c2cb7;
+}
+
+.c-todo-label {
+  display: inline-block;
+  min-width: 100px;
+}
+
+.c-todo-label--is-complete {
+  text-decoration: line-through;
+  color: #454545;
+  opacity: 0.8;
+}
+
+.o-button-container {
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: auto auto auto;
+  justify-content: start;
+}
+
+.c-input-field {
+  all: unset;
+  font-size: 18px;
+  padding: 5px;
+  border: 2px solid #3021d9;
+  border-radius: 5px;
+}
