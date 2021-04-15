@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
 import classnames from 'classnames'
+import React, { useState, useEffect } from 'react'
 
 import './Todo.css'
 
@@ -10,6 +10,15 @@ const Todo = () => {
   const [toDoList, setToDoList] = useState([])
   const [editLabel, setEditLabel] = useState(null)
   const [isButtonDisabled, setIsButtonDisabled] = useState(true)
+
+  useEffect(() => {
+    // this is where we would get what we saved to local storage
+    setToDoList(JSON.parse(localStorage.getItem('toDoListLS')))
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem('toDoListLS', JSON.stringify(toDoList))
+  }, [toDoList])
 
   // when new todo is created
   const onTodoCreate = () => {
@@ -42,6 +51,7 @@ const Todo = () => {
     setToDoList(toDoList.filter((todo, i) => index !== i))
   }
 
+  // when the checkbox on the todo is clicked (called in a loop)
   const onTodoEdit = (index, targetTodo) => {
     setToDoList([
       ...toDoList.slice(0, index),
@@ -53,7 +63,7 @@ const Todo = () => {
     ])
   }
 
-  // when the checkbox on the todo is clicked
+  // when the checkbox on the todo is clicked (called in a loop)
   const onTodoComplete = (index, targetTodo) => {
     setToDoList([
       ...toDoList.slice(0, index),
@@ -65,6 +75,7 @@ const Todo = () => {
     ])
   }
 
+  // when the edit input field is updated through typing (called in a loop)
   const onItemEdit = (e) => {
     setEditLabel(e.target.value)
   }
@@ -86,9 +97,20 @@ const Todo = () => {
     setToDoList([])
   }
 
+  // == means compare two things but doesn't check data type (23 == '23') is true
+  // === means compare two things and checks data type (23 == '23') is NOT true
+  // ? means if in if else statement and
+  // : means else
+
   return (
     <div className="o-todo-container">
-      <h1>TODO APP</h1>
+      <h1 className="c-app-header">TO DO APP</h1>
+
+      {/* default message displayed when to do list empty */}
+      {/* && is an if statement with no else (called short circuit) */}
+      {toDoList.length === 0 && (
+        <h2 className="o-default-message">You have not added a task</h2>
+      )}
 
       <div className="o-task-addition">
         <input
