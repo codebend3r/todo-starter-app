@@ -25,7 +25,7 @@
   },
   "rules": {
     "react/display-name": 0,
-    "react/prop-types": 2,
+    "react/prop-types": 0,
     "react/no-unused-prop-types": 2,
     "react/default-props-match-prop-types": 2,
     "react/jsx-curly-brace-presence": [2, { "props": "never" }],

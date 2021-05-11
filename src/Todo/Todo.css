@@ -11,6 +11,7 @@
   border-radius: 10px;
   width: 300px;
 }
+
 .o-checklist {
   margin: 0;
   padding: 10px;
@@ -26,6 +27,14 @@
 
 .o-checklist {
   padding: 10px;
+}
+
+.c-date-created {
+  color: black;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 12px;
+  background-color: #22e96e;
 }
 
 .c-app-header {
@@ -59,9 +68,7 @@
   display: grid;
   grid-gap: 5px;
   grid-template-columns: auto auto auto;
-  justify-content: start;
-  position: absolute;
-  right: 75px;
+  justify-content: end;
 }
 
 .c-input-field {
@@ -70,4 +77,12 @@
   padding: 5px;
   border: 2px solid #3021d9;
   border-radius: 5px;
+}
+
+.c-edit-input-field {
+  color: teal;
+  border: 2px dashed black;
+  border-radius: 0px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 30px;
 }
