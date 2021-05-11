@@ -1,0 +1,78 @@
+{
+  "env": {
+    "es6": true,
+    "node": true,
+    "jest": true,
+    "browser": true
+  },
+  "parser": "babel-eslint",
+  "extends": [
+    "plugin:prettier/recommended",
+    "plugin:react/recommended"
+  ],
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 2017,
+    "ecmaFeatures": {
+      "jsx": true,
+      "experimentalObjectRestSpread": true
+    }
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "rules": {
+    "react/display-name": 0,
+    "react/prop-types": 2,
+    "react/no-unused-prop-types": 2,
+    "react/default-props-match-prop-types": 2,
+    "react/jsx-curly-brace-presence": [2, { "props": "never" }],
+    "react/jsx-no-duplicate-props": [2, { "ignoreCase": true }],
+    "curly": [2, "all"],
+    "dot-notation": 2,
+    "key-spacing": [2,
+      {
+        "singleLine": {
+          "beforeColon": false,
+          "afterColon": true
+        },
+        "multiLine": {
+          "beforeColon": false,
+          "afterColon": true
+        }
+      }
+    ],
+    "no-console": [2, { "allow": ["warn", "error"] }],
+    "no-eval": 2,
+    "no-debugger": 2,
+    "no-dupe-keys": 2,
+    "no-mixed-spaces-and-tabs": 2,
+    "no-multi-spaces": 2,
+    "no-multiple-empty-lines": [2, { "max": 2 }],
+    "no-native-reassign": 2,
+    "no-octal-escape": 2,
+    "no-param-reassign": 2,
+    "no-trailing-spaces": 2,
+    "no-unused-vars": 2,
+    "object-shorthand": [2, "always"],
+    "semi": [2, "never"],
+    "space-before-blocks": [2,
+      {
+        "functions": "always",
+        "keywords": "always",
+        "classes": "always"
+      }
+    ],
+    "space-before-function-paren": [2,
+      {
+        "anonymous": "always",
+        "named": "never",
+        "asyncArrow": "always"
+      }
+    ],
+    "space-in-parens": [2, "never"],
+    "yoda": 2
+  }
+}

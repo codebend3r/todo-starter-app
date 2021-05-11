@@ -4,6 +4,13 @@
   grid-gap: 10px;
 }
 
+.o-default-message {
+  margin: 0;
+  padding: 10px;
+  background-color: #eb1b9b;
+  border-radius: 10px;
+  width: 300px;
+}
 .o-checklist {
   margin: 0;
   padding: 10px;
@@ -19,6 +26,11 @@
 
 .o-checklist {
   padding: 10px;
+}
+
+.c-app-header {
+  font-family: sans-serif;
+  text-decoration: underline;
 }
 
 .c-checklist-item {
@@ -48,6 +60,8 @@
   grid-gap: 5px;
   grid-template-columns: auto auto auto;
   justify-content: start;
+  position: absolute;
+  right: 75px;
 }
 
 .c-input-field {
