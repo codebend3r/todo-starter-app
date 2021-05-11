@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import classnames from 'classnames'
 import { format } from 'date-fns'
-
+import TodoItem from '../TodoItem'
 import TaskAdder from '../TaskAdder'
 
 import './Todo.css'
@@ -55,8 +55,8 @@ const Todo = () => {
 
   // when todo is deleted
   const onTodoDelete = (index) => {
-    // return false when index is equal to i (filter out)
-    // return true when index is NOT equal to i (keep it)
+    //   // return false when index is equal to i (filter out)
+    //   // return true when index is NOT equal to i (keep it)
     setToDoList(toDoList.filter((_todo, i) => index !== i))
   }
 
@@ -148,40 +148,17 @@ const Todo = () => {
 
             return (
               // TODO: move everything here into it's own component
-              <li key={`item-${index}`} className="c-checklist-item">
-                <input
-                  type="checkbox"
-                  onChange={onTodoComplete.bind(null, index, todo)}
-                />
-
-                {/* if the current todo item in the list is in EDIT MODE
-                then show the edit iput field
-                if not then show the regular label field */}
-                {todo.isInEditMode ? editInput : labelField}
-
-                <div className="o-button-container">
-                  <button
-                    className="c-button"
-                    onClick={onTodoDelete.bind(null, index, todo)}
-                  >
-                    DELETE
-                  </button>
-                  <button
-                    className="c-button"
-                    onClick={onTodoEdit.bind(null, index, todo)}
-                  >
-                    EDIT
-                  </button>
-                  {todo.isInEditMode && (
-                    <button
-                      className="c-button"
-                      onClick={onTodoSave.bind(null, index, todo)}
-                    >
-                      SAVE
-                    </button>
-                  )}
-                </div>
-              </li>
+              <TodoItem
+                key={index}
+                index={index}
+                todo={todo}
+                onTodoDelete={onTodoDelete}
+                onTodoEdit={onTodoEdit}
+                onTodoComplete={onTodoComplete}
+                labelField={labelField}
+                editInput={editInput}
+                onTodoSave={onTodoSave}
+              />
             )
           })}
         </ul>

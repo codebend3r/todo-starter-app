@@ -3,9 +3,11 @@
 Created with create react app (CRA)
 
 ## Todos
-****
+
+---
+
 - [x] give the main title an underline and a different font family
-- [x] how a message if there are _no todos_, in other words if the array `toDoList` is empty
+- [x] show a message if there are _no todos_, in other words if the array `toDoList` is empty
 - [x] within each todo created, while in edit mode, give that input field (<input />) a class name and style it
 - [x] within each todo created, move the group of buttons all the way to the right (align right)
 - [x] move everything with `<div className="o-task-addition">` into it's own new component, call it `TaskAdder`

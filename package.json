@@ -7,7 +7,7 @@
     "eject": "react-scripts eject",
     "lint:fix": "eslint ./src --fix",
     "lint": "eslint --cache ./src",
-    "prettier": "prettier --write '**/*.js'",
+    "prettier": "prettier --write \"./src/**/*.js\"",
     "start": "react-scripts start",
     "test": "react-scripts test"
   },
